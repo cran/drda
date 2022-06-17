@@ -158,7 +158,7 @@ ntrm_inertia_correction <- function(
 
   eigval <- eigen(X, symmetric = TRUE, only.values = TRUE)$values
 
-  some_zero <- any(abs(eigval) < eps)
+  some_zero <- any(abs(eigval) < 0.0001)
   some_negative <- any(eigval[idx] < -eps)
   some_positive <- any(eigval[-idx] > eps)
 
@@ -312,7 +312,10 @@ ntrm_lagrange_multiplier <- function(obj, mu) {
   # Lagrange multipliers cannot be negative
   idx_neg <- z < 0
   if (any(idx_neg)) {
-    z[idx_neg] <- pmin(1.0e-3, mu / obj$s[idx_neg])
+    s <- obj$s
+    s[s == 0] <- .Machine$double.eps
+
+    z[idx_neg] <- pmin(1.0e-3, mu / s[idx_neg])
   }
 
   z
@@ -564,7 +567,7 @@ ntrm_step_normal <- function(Y, B, slack_residual, delta, tau, idx_s) {
   # See Section 4.1 (pages 73-76), Section 18.5 (pages 547-548), and
   # Section 19.5 (page 580) of Nocedal and Wright (2006)
   rho <- 0.8 * delta
-  omega <- - tau / 2
+  omega <- -tau / 2
 
   # f(v) = 0.5 v' B' B v + v' B' w + 0.5 w' w
   #
@@ -654,7 +657,7 @@ ntrm_step_shrink <- function(p, a, d, tau, idx_s) {
   } else {
     small_d <- d[idx_s][i]
 
-    a_shrink <- - (tau + p[idx_s][i]) / small_d
+    a_shrink <- -(tau + p[idx_s][i]) / small_d
 
     if (abs(a_shrink) > abs(a)) {
       # the direction is not shrunk but enlarged
@@ -1065,6 +1068,25 @@ ntrm_constrained <- function(fn, gh, init, max_iter, lower_bound, upper_bound) {
     }
   }
 
+  # initial value should already be an optimum or close to it
+  obj <- ntrm_init_obj(
+    fn, gh, C, cur_optimum, C(cur_optimum), constraints$A, 0
+  )
+  error <- ntrm_error(obj, 0)
+
+  if (error < eps_2) {
+    return(
+      list(
+        optimum = obj$x,
+        minimum = obj$f,
+        converged = TRUE,
+        iterations = 0
+      )
+    )
+  }
+
+  # unfortunately the error is too high and we need to refine the solution
+  #
   # the algorithm is very sensitive to the initial slack variables
   #
   # we try to find a value for which the error is already small
@@ -1087,18 +1109,9 @@ ntrm_constrained <- function(fn, gh, init, max_iter, lower_bound, upper_bound) {
     }
   )
 
-  # if the starting point is way too far from the true solution, the previous
-  # strategy might not work
   obj <- ntrm_init_obj(
     fn, gh, C, cur_optimum, rep(s, nrow(constraints$A)), constraints$A, mu
   )
-
-  error <- ntrm_error(obj, mu)
-  if (error > 100) {
-    obj <- ntrm_init_obj(
-      fn, gh, C, cur_optimum, rep(1, nrow(constraints$A)), constraints$A, mu
-    )
-  }
 
   i <- 0
   repeat {

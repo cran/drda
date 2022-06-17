@@ -1,5 +1,3 @@
-context("Newton trust region - auxiliary functions")
-
 test_that("ntrm_solve_tr_subproblem: random vector", {
   set.seed(4705968)
 
@@ -101,10 +99,10 @@ test_that("ntrm_solve_tr_subproblem: various situations", {
 
   H <- U %*% diag(L) %*% t(U)
   H <- (t(H) + H) / 2
-  G <- U[ ,2]
+  G <- U[, 2]
 
   expect_true(isSymmetric(H))
-  expect_lt(abs(sum(G * U[ ,1])), 1.0e-12)
+  expect_lt(abs(sum(G * U[, 1])), 1.0e-12)
 
   true_p <- -solve(H, G)
   true_p_sn <- sum(true_p^2)
@@ -116,10 +114,8 @@ test_that("ntrm_solve_tr_subproblem: various situations", {
   expect_equal(sqrt(sum(result$p^2)), delta)
 })
 
-context("Newton trust region method")
-
 test_that("ntrm: Rosenbrock function", {
-  set.seed(2823440)
+  set.seed(2823441)
 
   fn <- function(x) {
     (1 - x[1])^2 + 100 * (x[2] - x[1]^2)^2
@@ -141,7 +137,7 @@ test_that("ntrm: Rosenbrock function", {
   }
 
   # try different random starting points
-  for (i in 1:5) {
+  for (i in 1:10) {
     result <- ntrm(fn, gh, rnorm(2, sd = 3), 1000)
     expect_equal(result$optimum, c(1, 1))
   }
