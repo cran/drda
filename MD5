@@ -1,4 +1,4 @@
-6f3084f390d82dd98a132afe2074b243 *DESCRIPTION
+92727d750f6e595ca54a2e92f928a1c8 *DESCRIPTION
 aa42d3ec4d1d7cc717dcbca752daf18a *LICENSE
 4f78599feda7359fe1c5ad951d1f3f86 *NAMESPACE
 175b6c2f4b57f661a7c061186ebb981b *NEWS.md
@@ -7,7 +7,7 @@ aa42d3ec4d1d7cc717dcbca752daf18a *LICENSE
 427458bc1f6f7a934ccbf94d445cdc81 *R/curve_variance.R
 d3b40bb28f9d030e80beda87608a3d38 *R/data.R
 6e4675d37fc5d7c68c2fbdcb5355dc01 *R/drda-package.R
-88c3cd69e467f0606471b1cbebd101be *R/drda.R
+f5af8104b50330cfbbc596f9ca3379b5 *R/drda.R
 11a26cb72db8dd3bfaabe6470c6ee79e *R/effective_dose.R
 deceb29d8ddfb6ab93d5c952635b5389 *R/gompertz.R
 95feb5a0f702f2b644983d32e9f275fb *R/loggompertz.R
@@ -24,14 +24,14 @@ a265c289baf66b6243f3854f94dad393 *R/naac.R
 32cf26a64758cbe5586a71fa10b5a203 *R/ntrm.R
 54f5ea599c08129d7e1166b0f4be6d1b *R/ntrm_constrained.R
 f18cfed65734c9af16e80d835aeb5926 *R/ntrm_functions.R
-56072a3b2f9292180b71c5dc07005760 *R/plot.R
-b92c85dfc993e947baf7e71d5d675949 *build/vignette.rds
-cee2563711db584a9cb8a43e323866fc *data/voropm2.rda
+8864b056fc931ccc7ecd7c5742b72484 *R/plot.R
+5b591f731152bcaa494906a3d603233b *build/vignette.rds
+6afbc9a6e5a123e7585735a01ae2b13d *data/voropm2.rda
 e121d854d9b385f42c19ba27adbb9fab *inst/CITATION
 c119edc8a0424c47c3bcd43b3fe866c7 *inst/WORDLIST
 d4538cbb2ff216abaad4734f0e16f177 *inst/doc/drda.R
 e0054559202e96d6b280d24af9c48117 *inst/doc/drda.Rtex
-3c5da82bb59ed01fb5c1d3656592c00c *inst/doc/drda.pdf
+773f6d60adf5873ce4eb314c17f2b468 *inst/doc/drda.pdf
 a24f8c0838c0489c51bdcfad6c939413 *man/drda-package.Rd
 49a50cea72d3e9d8a8ae89fd4f629a72 *man/drda.Rd
 b9302da02e74c785cea7abc7205477ac *man/effective_dose.Rd
@@ -67,7 +67,7 @@ f19c877c5520c5527dc017138d75ede4 *man/loglogistic6_gradient.Rd
 8dfc218390475f6837eb8e34c7833178 *man/loglogistic6_gradient_2.Rd
 7707707abdafbbc1d30ba29732b42973 *man/naac.Rd
 3d2608ac16ab2b9dc1d729c6e1903b9f *man/nauc.Rd
-293f9b79f3a703e1337449755b738309 *man/plot.drda.Rd
+94e89619230ca952dd9ae1487c8509aa *man/plot.drda.Rd
 11aa1f48b891995774d4ed771e0a06c2 *man/voropm2.Rd
 51ef79c973e13a4c905af6c3853ca9e8 *tests/spelling.R
 17f826117c7f75f9eb003e6c6b5e7aa3 *tests/testdata.R
