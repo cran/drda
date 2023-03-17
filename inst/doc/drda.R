@@ -252,16 +252,17 @@ plot(fit_l5)
 ## ----plot_multi, fig.pos = "H", fig.height = 4, fig.width = 9, fig.cap = ""----
 plot(
   fit_l2, fit_l4, fit_gz, base = "10", level = 0.9, xlim = c(-10, 5),
-  ylim = c(-0.1, 1.1), xlab = "log(dose)", ylab = "Relative viability",
+  ylim = c(-0.1, 1.1), xlab = "Dose", ylab = "Relative viability",
   cex = 0.9, legend = c("2-p logistic", "4-p logistic", "Gompertz")
 )
 
 ## ----plot_log_multi, fig.pos = "H", fig.height = 4, fig.width = 9, fig.cap = ""----
 fit_ll2 <- drda(y ~ d, data = test_data, mean_function = "loglogistic2")
-fit_llg <- drda(y ~ d, data = test_data, mean_function = "loggompertz")
+fit_lgz <- drda(y ~ d, data = test_data, mean_function = "loggompertz")
 plot(
-  fit_ll2, fit_ll4, fit_llg, base = "10", level = 0.9, xlim = c(0, 100),
-  ylim = c(-0.1, 1.1), xlab = "Dose", ylab = "Relative viability", cex = 0.9,
+  fit_ll2, fit_ll4, fit_lgz, base = "10", level = 0.9,
+  xlim = c(0, 100), ylim = c(-0.1, 1.1), xlab = "Dose",
+  ylab = "Relative viability", cex = 0.9,
   legend = c("2-p log-logistic", "4-p log-logistic", "log-Gompertz")
 )
 

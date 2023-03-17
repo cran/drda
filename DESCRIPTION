@@ -1,16 +1,20 @@
 Type: Package
 Package: drda
 Title: Dose-Response Data Analysis
-Version: 2.0.2
+Version: 2.0.3
 Authors@R: c(
-    person("Alberto", "Pessia", , "dev@albertopessia.com", role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0001-8607-9191")),
-    person("Alina", "Malyutina", role = "ctb",
-           comment = c(ORCID = "0000-0001-8220-5859"))
+    person(
+      "Alberto", "Pessia", , "dev@albertopessia.com", role = c("aut", "cre"),
+      comment = c(ORCID = "0000-0001-8607-9191")
+    ),
+    person(
+      "Alina", "Malyutina", role = "ctb",
+      comment = c(ORCID = "0000-0001-8220-5859")
+    )
   )
 Description: Fit logistic functions to observed dose-response continuous
     data and evaluate goodness-of-fit measures. See Malyutina A., Tang J.,
-    and Pessia A. (2021) <doi:10.1101/2021.06.07.447323>.
+    and Pessia A. (2023) <doi:10.18637/jss.v106.i04>.
 License: MIT + file LICENSE
 URL: https://github.com/albertopessia/drda
 BugReports: https://github.com/albertopessia/drda/issues
@@ -22,11 +26,11 @@ Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US
 LazyData: true
-RoxygenNote: 7.2.2
+RoxygenNote: 7.2.3
 NeedsCompilation: no
-Packaged: 2022-11-25 10:20:38 UTC; GMPPA
+Packaged: 2023-03-17 08:27:04 UTC; GMPPA
 Author: Alberto Pessia [aut, cre] (<https://orcid.org/0000-0001-8607-9191>),
   Alina Malyutina [ctb] (<https://orcid.org/0000-0001-8220-5859>)
 Maintainer: Alberto Pessia <dev@albertopessia.com>
 Repository: CRAN
-Date/Publication: 2022-11-25 12:30:05 UTC
+Date/Publication: 2023-03-17 11:30:11 UTC
